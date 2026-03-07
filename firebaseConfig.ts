@@ -2,14 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_LB27KPFAUpT4tkmj2rbAMdlFgLphlqk",
-  authDomain: "prom-joy.firebaseapp.com",
-  databaseURL: "https://prom-joy-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "prom-joy",
-  storageBucket: "prom-joy.firebasestorage.app",
-  messagingSenderId: "958771441744",
-  appId: "1:958771441744:web:ffa94008a11b2df925a155",
-  measurementId: "G-G5G2JHWQ90"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
