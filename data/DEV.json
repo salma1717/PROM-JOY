@@ -1,0 +1,55 @@
+{
+  "user_id": "DEV",
+  "chats": [
+    {
+      "role": "user",
+      "message": "saya lagi cemas",
+      "timestamp": "2026-03-07T09:39:24.160Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Wah, lagi cemas ya sekarang. Pasti rasanya nggak enak banget. Coba deh cari tempat yang paling nyaman menurutmu sekarang, terus duduk sebentar. Nggak usah mikirin apa-apa dulu ya.",
+      "timestamp": "2026-03-07T09:39:28.540Z"
+    },
+    {
+      "role": "user",
+      "message": "saya abis bimbingan dengan dosen saya dan ada revisi disisi lain saya masih dihubungin kerjaan karna saya lg magang kan",
+      "timestamp": "2026-03-07T09:40:07.665Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Duh, jadi dobel gitu ya bebannya, revisi dari dosen sama kerjaan magang. Pasti pusing banget rasanya. Coba deh, sekarang tulis aja dulu semua yang lagi kamu pikirin, mau itu tentang revisian atau kerjaan. Nggak perlu rapi, yang penting keluar dulu dari kepala. Sudah sempat istirahat sebentar belum hari ini?",
+      "timestamp": "2026-03-07T09:40:10.693Z"
+    },
+    {
+      "role": "user",
+      "message": "belum, saya gada waktu",
+      "timestamp": "2026-03-07T09:40:23.577Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Wah, belum sempat istirahat sama sekali ya? Pasti capek banget dan bikin makin pusing. Kalau gitu, gimana kalau sekarang kamu coba pejamkan mata aja sebentar, mungkin 30 detik sampai 1 menit? Nggak perlu pindah tempat, cuma biar mata dan pikiran bisa rehat sebentar.",
+      "timestamp": "2026-03-07T09:40:25.898Z"
+    },
+    {
+      "role": "user",
+      "message": "buat apa",
+      "timestamp": "2026-03-07T09:40:36.172Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Untuk kasih jeda sebentar aja buat otak dan mata kamu, biar nggak terus-terusan mikir dan ngelihat layar. Kadang, jeda kecil gitu bisa bantu banget biar nggak terlalu tegang. Kalau nggak mau pejam mata, coba deh alihkan pandanganmu ke luar jendela sebentar, lihat pemandangan yang beda.",
+      "timestamp": "2026-03-07T09:40:38.597Z"
+    },
+    {
+      "role": "user",
+      "message": "sudah",
+      "timestamp": "2026-03-07T09:40:45.500Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Oke, bagus kalau sudah. Semoga sedikit bantu ya, walau sebentar. Pasti rasanya campur aduk banget ya kalau banyak hal mendesak gini.\n\nGimana kalau sekarang kita coba fokus ke satu hal dulu? Coba deh tulis satu poin revisi yang paling kamu ingat dari dosen atau satu tugas kerjaan yang paling bikin kamu kepikiran. Nggak usah dipikirin gimana ngerjainnya, tulis aja dulu.",
+      "timestamp": "2026-03-07T09:40:48.364Z"
+    }
+  ]
+}
