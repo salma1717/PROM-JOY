@@ -50,6 +50,36 @@
       "role": "assistant",
       "message": "Oke, bagus kalau sudah. Semoga sedikit bantu ya, walau sebentar. Pasti rasanya campur aduk banget ya kalau banyak hal mendesak gini.\n\nGimana kalau sekarang kita coba fokus ke satu hal dulu? Coba deh tulis satu poin revisi yang paling kamu ingat dari dosen atau satu tugas kerjaan yang paling bikin kamu kepikiran. Nggak usah dipikirin gimana ngerjainnya, tulis aja dulu.",
       "timestamp": "2026-03-07T09:40:48.364Z"
+    },
+    {
+      "role": "user",
+      "message": "saya pusing saya harus magang dan skripsian",
+      "timestamp": "2026-03-07T10:03:47.343Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Duh, pasti rasanya lagi berat banget ya harus bagi fokus antara magang sama skripsi. Coba deh, mungkin bisa mulai dengan menuliskan semua yang ada di pikiranmu, biar nggak numpuk di kepala. Ada yang paling bikin kamu pusing duluan, soal magang atau skripsi?",
+      "timestamp": "2026-03-07T10:03:51.780Z"
+    },
+    {
+      "role": "user",
+      "message": "skripsi",
+      "timestamp": "2026-03-07T10:03:59.021Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Skripsi memang sering bikin pusing ya. Nggak apa-apa, coba kita pecah jadi bagian kecil dulu. Gimana kalau hari ini fokus baca ulang satu bab aja, atau mungkin cuma buka file skripsinya sebentar?",
+      "timestamp": "2026-03-07T10:04:01.037Z"
+    },
+    {
+      "role": "user",
+      "message": "gaada semangat burnout demotivated",
+      "timestamp": "2026-03-07T10:04:14.209Z"
+    },
+    {
+      "role": "assistant",
+      "message": "Waduh, rasanya lagi capek banget ya sampai rasanya kosong gitu. Nggak apa-apa, perasaan kayak gini wajar kok. Mungkin hari ini coba istirahat dulu sebentar dari layar, mungkin jalan-jalan keliling rumah atau minum air putih. Nggak perlu mikirin skripsi dulu ya.",
+      "timestamp": "2026-03-07T10:04:17.690Z"
     }
   ]
 }

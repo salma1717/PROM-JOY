@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Chat } from '@google/genai';
 import { createChatSession, sendMessageStream } from './services/geminiService';
+import { saveChatToFirebase, loadChatHistoryFromFirebase } from './services/firebaseService';
 import ChatMessage from './components/ChatMessage';
 import DisclaimerModal from './components/DisclaimerModal';
 import EmergencyPanel from './components/EmergencyPanel';
@@ -31,25 +32,22 @@ const App: React.FC = () => {
     const savedUserId = localStorage.getItem('user_id');
     if (savedUserId) {
       setUserId(savedUserId);
-      // Load chat history for this user
-      const history = loadChatHistory(savedUserId);
-      
-      if (history.length > 0) {
-        // If history exists, load it
-        setMessages(history);
-      } else {
-        // If no history, set initial message
-        setMessages([
-          {
-            id: 'init-1',
-            text: INITIAL_MESSAGE,
-            sender: Sender.BOT,
-            timestamp: new Date(),
-          },
-        ]);
-      }
+      // Load chat history from Firebase
+      loadChatHistoryFromFirebase(savedUserId).then((history) => {
+        if (history.length > 0) {
+          setMessages(history);
+        } else {
+          setMessages([
+            {
+              id: 'init-1',
+              text: INITIAL_MESSAGE,
+              sender: Sender.BOT,
+              timestamp: new Date(),
+            },
+          ]);
+        }
+      });
     } else {
-      // No userId, show modal
       setShowRespondenModal(true);
     }
   }, []);
@@ -93,17 +91,9 @@ const App: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Save user message to backend
+      // Save user message to Firebase
       if (userId) {
-        await fetch('http://localhost:3001/api/save-chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            user_id: userId,
-            role: 'user',
-            message: userText,
-          }),
-        }).catch((err) => console.warn('Backend not available:', err));
+        await saveChatToFirebase(userId, 'user', userText);
       }
 
       // 2. Create placeholder for Bot Message
@@ -130,17 +120,9 @@ const App: React.FC = () => {
         );
       }
 
-      // Save bot response to backend
+      // Save bot response to Firebase
       if (userId) {
-        await fetch('http://localhost:3001/api/save-chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            user_id: userId,
-            role: 'assistant',
-            message: fullResponse,
-          }),
-        }).catch((err) => console.warn('Backend not available:', err));
+        await saveChatToFirebase(userId, 'assistant', fullResponse);
       }
     } catch (error) {
       console.error('Chat error:', error);
