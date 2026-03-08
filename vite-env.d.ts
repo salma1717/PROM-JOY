@@ -16,5 +16,8 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
+<<<<<<< HEAD
 /// <reference types="vite/client" />
 
+=======
+>>>>>>> de485bc (chore: add vite-env.d.ts with environment variables types)
