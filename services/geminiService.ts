@@ -5,7 +5,7 @@ import { SYSTEM_INSTRUCTION } from '../constants';
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!apiKey) {
-  console.error("GEMINI API KEY tidak ditemukan.");
+  console.error("VITE GEMINI API KEY tidak ditemukan.");
 }
 
 const ai = new GoogleGenAI({
@@ -28,7 +28,7 @@ const chatConfig = {
  */
 export const createChatSession = (): Chat => {
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not configured. Please set VITE_GEMINI_API_KEY in environment variables.");
+    throw new Error("VITE_GEMINI_API_KEY is not configured. Please set VITE_GEMINI_API_KEY in environment variables.");
   }
   return ai.chats.create(chatConfig);
 };
@@ -41,7 +41,7 @@ export const sendMessageStream = async function* (
   message: string
 ) {
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not configured");
+    throw new Error("VITE_GEMINI_API_KEY is not configured");
   }
   
   try {

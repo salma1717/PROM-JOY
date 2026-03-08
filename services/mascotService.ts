@@ -4,7 +4,7 @@ export const generateMascotImage = async () => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
   if (!apiKey) {
-    console.error("GEMINI API KEY tidak ditemukan.");
+    console.error("VITE GEMINI API KEY tidak ditemukan.");
   }
 
   const ai = new GoogleGenAI({
