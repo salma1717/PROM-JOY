@@ -2,8 +2,8 @@ import { GoogleGenAI, Chat } from "@google/genai";
 import { Message, Sender } from '../types';
 import { SYSTEM_INSTRUCTION } from '../constants';
 
-// Get API key from environment variable
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
+// Get API key from environment variable - check both import.meta.env and process.env
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '';
 
 // Debug: Log if API key is present (only first few chars for security)
 console.log('🔑 Gemini API Key status:', apiKey ? `Present (${apiKey.substring(0, 10)}...)` : 'MISSING');
