@@ -2,17 +2,15 @@ import { GoogleGenAI, Chat } from "@google/genai";
 import { Message, Sender } from '../types';
 import { SYSTEM_INSTRUCTION } from '../constants';
 
-// Get API key from environment variable - check both import.meta.env and process.env
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '';
-
-// Debug: Log if API key is present (only first few chars for security)
-console.log('🔑 Gemini API Key status:', apiKey ? `Present (${apiKey.substring(0, 10)}...)` : 'MISSING');
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!apiKey) {
-  console.error("❌ GEMINI_API_KEY is missing! Please set VITE_GEMINI_API_KEY in Vercel environment variables.");
+  console.error("GEMINI API KEY tidak ditemukan.");
 }
 
-const ai = new GoogleGenAI({ apiKey });
+const ai = new GoogleGenAI({
+  apiKey: apiKey
+});
 
 // Create a chat session config
 const chatConfig = {
