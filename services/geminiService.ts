@@ -12,9 +12,11 @@ const ai = new GoogleGenAI({
   apiKey: apiKey
 });
 
+
+
 // Create a chat session config
 const chatConfig = {
-  model: 'gemini-1.5-flash',
+  model: 'gemini-3.1-flash-lite-preview',
   config: {
     systemInstruction: SYSTEM_INSTRUCTION,
     temperature: 0.7,
@@ -31,6 +33,23 @@ export const createChatSession = (): Chat => {
     throw new Error("VITE_GEMINI_API_KEY is not configured. Please set VITE_GEMINI_API_KEY in environment variables.");
   }
   return ai.chats.create(chatConfig);
+};
+
+/**
+ * Lists all available models
+ */
+export const listAvailableModels = async () => {
+  if (!apiKey) {
+    throw new Error("VITE_GEMINI_API_KEY is not configured");
+  }
+  
+  try {
+    const models = await ai.models.list();
+    return models;
+  } catch (error) {
+    console.error("Error listing models:", error);
+    throw error;
+  }
 };
 
 /**
