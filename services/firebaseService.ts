@@ -1,6 +1,6 @@
 import { database } from '../firebaseConfig';
-import { ref, set, get, push } from 'firebase/database';
-import { Message } from '../types';
+import { ref, set, get } from 'firebase/database';
+import { Message, Sender } from '../types';
 
 /**
  * Save a single chat message to Firebase
@@ -46,7 +46,7 @@ export const loadChatHistoryFromFirebase = async (userId: string): Promise<Messa
     return chats.map((chat: any, index: number) => ({
       id: `${Date.now()}-${index}`,
       text: chat.message,
-      sender: chat.role === 'user' ? 0 : 1, // 0 = USER, 1 = BOT
+      sender: chat.role === 'user' ? Sender.USER : Sender.BOT,
       timestamp: new Date(chat.timestamp),
     }));
   } catch (error) {
