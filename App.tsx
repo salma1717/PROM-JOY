@@ -32,11 +32,22 @@ const App: React.FC = () => {
     const savedUserId = localStorage.getItem('user_id');
     if (savedUserId) {
       setUserId(savedUserId);
-      // Load chat history from Firebase
-      loadChatHistoryFromFirebase(savedUserId).then((history) => {
+    } else {
+      setShowRespondenModal(true);
+    }
+  }, []);
+
+  // Load chat history whenever userId is set (either from localStorage or from RespondenModal)
+  useEffect(() => {
+    if (userId) {
+      console.log('📝 Loading chat for userId:', userId);
+      loadChatHistoryFromFirebase(userId).then((history) => {
+        console.log('📥 Loaded history from Firebase:', history);
         if (history.length > 0) {
+          console.log('✅ Found', history.length, 'messages in Firebase');
           setMessages(history);
         } else {
+          console.log('⚠️ No chat history found in Firebase for this user');
           setMessages([
             {
               id: 'init-1',
@@ -47,17 +58,15 @@ const App: React.FC = () => {
           ]);
         }
       });
-    } else {
-      setShowRespondenModal(true);
     }
-  }, []);
+  }, [userId]);
 
   // Initialize chat session
   useEffect(() => {
     chatSessionRef.current = createChatSession();
   }, []);
 
-  // Save chat history whenever messages change
+  // Save chat history to localStorage as backup
   useEffect(() => {
     if (userId && messages.length > 0) {
       saveChatHistory(userId, messages);

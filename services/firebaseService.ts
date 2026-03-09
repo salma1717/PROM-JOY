@@ -36,11 +36,16 @@ export const loadChatHistoryFromFirebase = async (userId: string): Promise<Messa
     const chatRef = ref(database, `chats/${userId}`);
     const snapshot = await get(chatRef);
     
+    console.log('🔍 Firebase snapshot exists:', snapshot.exists());
+    console.log('🔍 Firebase snapshot value:', snapshot.val());
+    
     if (!snapshot.exists()) {
+      console.log('❌ No data found at chats/' + userId);
       return [];
     }
     
     const chats = snapshot.val() || [];
+    console.log('📊 Chats loaded:', chats);
     
     // Convert to Message format
     return chats.map((chat: any, index: number) => ({
